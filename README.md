@@ -5,7 +5,7 @@ nano script.sh //  create file
 chmod +x script.sh // sdelaet ispolnyaemim
 /script.sh //  launch
 
-#!bin/bash // первая строка любого скрипта
+#!/bin/bash // первая строка любого скрипта
 mysql -u root -p'root' -e// авторизуемся с пользователя
 "CREATE DATABASE USER_DB;"   // создадим базу данных
 mysql -u root -p'root' -e " USE USER_DB; // выбираем базу данных
