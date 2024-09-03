@@ -17,7 +17,13 @@ username="user_$i" // создаем пользователетей user1, user2
 bdname="base_$i" // создает базы 
 password=$(openssl rand -base 64 10) // создает радомный пароль
 
-mysql -u root -p'root' -e"
-CREATE USER $username@localhost
-IDENTIFIED BY $password";
+mysql -u root -p'root' -e
+"CREATE USER $username@localhost IDENTIFIED BY $password"; // создаем пользователей
 
+mysql -u root -p'root' -e
+"USE USER_DB;
+INSERT INTO USERS(NAME, PASSWORD) VALUES ('$USERNAME', '$PASSWORD');"
+
+mysql -u root -p'root' -e
+"CREATE DATABASE $USER_DB;
+GRANT ALL PRIVELEGES ON $USER_DB.*TO $username@localhost"
